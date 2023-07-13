@@ -47,7 +47,7 @@ jobs:
               run: npm run test && echo '✅ ✅ Tests passed!'
 
     deploy-production:
-        runs-on: self-hosted
+        runs-on: [self-hosted, labelproduction]
         needs: [build, test]
         if: ${{ github.ref == 'refs/heads/main' }}
 
@@ -74,4 +74,4 @@ jobs:
 
             - run: npm run build --if-present
             - run: npm run test
-            - run: pm2 restart server
+            - run: pm2 restart productionapp
