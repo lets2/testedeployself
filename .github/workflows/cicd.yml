@@ -33,10 +33,11 @@ jobs:
 
             - run: npm install
 
-            - name: Set environment variable
-              run: echo "PORT=$PORT_SECRET" >> $GITHUB_ENV
-              env:
-                  PORT_SECRET: ${{ vars.MY_PORT }}
+            - name: Create .env file
+              run: |
+                  echo "PORT=${{ vars.MY_PORT }}" >> .env
+                  cat .env
+              # Add other variables as needed
 
             - run: npm run build --if-present
             - run: npm run test
