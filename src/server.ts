@@ -3,9 +3,11 @@ import { app } from "./app";
 
 dotenv.config();
 
-app.listen(process.env.PORT, () => {
-  console.log("*******************************************");
-  console.log(`🔰 Servidor rodando na porta ${process.env.PORT}!`);
-  console.log(`   Servidor local: http://localhost:${process.env.PORT}`);
-  console.log("*******************************************");
+const port = process.env.PORT || 3005;
+
+app.listen(port, () => {
+    console.log("*******************************************");
+    console.log(`🔰 Servidor rodando na porta ${port}!`);
+    console.log(`   Servidor local: http://localhost:${port}`);
+    console.log("*******************************************");
 });
