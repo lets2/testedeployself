@@ -46,7 +46,7 @@ jobs:
             - name: Testing app with Jest
               run: npm run test && echo '✅ ✅ Tests passed!'
 
-    deploy-staging:
+    deploy-production:
         runs-on: self-hosted
         needs: [build, test]
         if: ${{ github.ref == 'refs/heads/main' }}
