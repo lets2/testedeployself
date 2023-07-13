@@ -2,8 +2,8 @@ name: Workflow to build, test and staging deploy
 run-name: Run Workflow build, test and staging deploy
 on:
     push:
-        branches:
-            - "*"
+        branches-ignore:
+            - main
     pull_request:
         types: [opened]
 
